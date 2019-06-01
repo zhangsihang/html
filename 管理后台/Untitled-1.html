@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A layout example that shows off a responsive product landing page.">
+<title>伪搜索管理</title>
+<link href="skin/css/base.css" rel="stylesheet" type="text/css" />
+<link href="skin/css/css.css" rel="stylesheet" type="text/css" />
+<script src="skin/js/jquery.min.js"></script>
+<script src="skin/js/SuperSlide.js"></script>
+</head>
+<body>
+<div id="top">
+  <ul class="fr">
+    <li class="hover on"><img src="skin/images/icon1.png"><img src="skin/images/icon2.png" class="pic2">
+      <ul class="down">
+        <li><a href="/main/resetPwd" class="selected">修改密码</a></li>
+        <li><a href="/user">用户管理</a></li>
+      </ul>
+    </li>
+    <li><a href="/login/logout"><img src="skin/images/icon3.png"></a></li>
+  </ul>
+  <img src="skin/images/logo1.jpg" class="logo fl"> </div>
+<script>jQuery("#top").slide({ type:"menu", titCell:".hover", targetCell:".down",effect:"slideDown",delayTime:300,trigger:"click",triggerTime:0,returnDefault:true});</script>
+<div id="content">
+  <div class="menu">
+    <dl class="clearfix">
+      <dt style="cursor:default;">个人账户</dt>
+      <dd><a href="/user/add"><img src="skin/images/menu1.png" />用户添加</a></dd>
+      <dd><a href="/user"><img src="skin/images/menu1.png" />用户管理</a></dd>
+    </dl>
+    <dl class="clearfix">
+      <dt style="cursor:default;">站点管理</dt>
+      <dd><a href="/site/add"><img src="skin/images/menu2.png" />添加站点</a></dd>
+      <dd><a href="/site"><img src="skin/images/menu2.png" />站点管理</a></dd>
+    </dl>
+    <dl class="clearfix">
+      <dt style="cursor:default;">关键词管理</dt>
+      <dd><a href="/kw/add"><img src="skin/images/menu4.png" />添加关键词</a></dd>
+      <dd><a href="/kw/import"><img src="skin/images/menu4.png" />导入关键词</a></dd>
+      <dd><a href="/kw"><img src="skin/images/menu4.png" />关键词管理</a></dd>
+    </dl>
+    <dl class="clearfix">
+      <dt>下拉词管理</dt>
+      <dd><a href="/historyword/config"><img src="skin/images/menu4.png" />下拉词配置</a></dd>
+      <dd><a href="/historyword"><img src="skin/images/menu4.png" />下拉词管理</a></dd>
+    </dl>
+    <dl class="clearfix">
+      <dt>数据统计</dt>
+      <dd><a href="/statistics"><img src="skin/images/menu7.png" />查询数据</a></dd>
+    </dl>
+  </div>
+  
+  <script>
+  	$(".menu dl dd").hide();
+	$(".menu dl dd:lt(2)").show();
+	
+	$(".menu dl").click(function(){
+	 $(".menu dl dd").hide();
+	 $(this).find("dd").slideToggle();
+	
+	});
+  </script>
+  
+  <div class="main">
+    <div class="relative">
+      <div class="location">当前位置 > <a href="">个人中心</a> > 账户信息</div>
+    </div>
+   
+   
+    <style>
+
+.mb td{
+	padding:8px;
+}
+.mb thead th{
+	 background:#f7f7f7;
+	 padding:8px;
+}
+</style>
+    <div class="rightaArea">
+      <div class="pt30 pl30 pr30">
+        <h4 class="f24"><a href="">用户管理</a></h4>
+        <div class="hr_a"></div>
+        <div class="bk">
+          <div class="hr_a"></div>
+          <table width="100%" border="1" class="bk mb">
+            <thead>
+              <tr>
+                <th width="100px">#</th>
+                <th>用户名</th>
+                <th>权限</th>
+                <!-- 						<th>状态</th> -->
+                <!-- 						<th width="15%">最后登陆IP</th> -->
+                <th width="30%">操作</th>
+              </tr>
+            </thead>
+            <tbody id="stc">
+              <tr>
+                <td>1</td>
+                <td>admin</td>
+                <td>管理员</td>
+                <!-- 
+						<td><span></span></td>
+						<td><a href="http://ip138.com/ips138.asp?ip=&action=2" target="_blank"></a></td>
+						 -->
+                <td><a class="text-danger" href="/user/toggle?sid=1">点击禁用</a> | <a class="text-danger" href="/user/rm?sid=1">删除</a> | <a class="text-danger" href="/user/resetpwd?sid=1">重置密码</a> </td>
+              </tr>
+              <tr>
+                <td>116</td>
+                <td>黄良涛</td>
+                <td>普通用户</td>
+                <!-- 
+						<td><span></span></td>
+						<td><a href="http://ip138.com/ips138.asp?ip=&action=2" target="_blank"></a></td>
+						 -->
+                <td><a class="text-danger" href="/user/toggle?sid=116">点击禁用</a> | <a class="text-danger" href="/user/rm?sid=116">删除</a> | <a class="text-danger" href="/user/resetpwd?sid=116">重置密码</a> </td>
+              </tr>
+              <tr>
+                <td>120</td>
+                <td>调试</td>
+                <td>管理员</td>
+                <!-- 
+						<td><span></span></td>
+						<td><a href="http://ip138.com/ips138.asp?ip=&action=2" target="_blank"></a></td>
+						 -->
+                <td><a class="text-danger" href="/user/toggle?sid=120">点击禁用</a> | <a class="text-danger" href="/user/rm?sid=120">删除</a> | <a class="text-danger" href="/user/resetpwd?sid=120">重置密码</a> </td>
+              </tr>
+              <tr>
+                <td>123</td>
+                <td>丸子</td>
+                <td>普通用户</td>
+                <!-- 
+						<td><span></span></td>
+						<td><a href="http://ip138.com/ips138.asp?ip=&action=2" target="_blank"></a></td>
+						 -->
+                <td><a class="text-danger" href="/user/toggle?sid=123">点击禁用</a> | <a class="text-danger" href="/user/rm?sid=123">删除</a> | <a class="text-danger" href="/user/resetpwd?sid=123">重置密码</a> </td>
+              </tr>
+              <tr>
+                <td>124</td>
+                <td>优化-尚昌建</td>
+                <td>普通用户</td>
+                <!-- 
+						<td><span></span></td>
+						<td><a href="http://ip138.com/ips138.asp?ip=&action=2" target="_blank"></a></td>
+						 -->
+                <td><a class="text-danger" href="/user/toggle?sid=124">点击禁用</a> | <a class="text-danger" href="/user/rm?sid=124">删除</a> | <a class="text-danger" href="/user/resetpwd?sid=124">重置密码</a> </td>
+              </tr>
+              <tr>
+                <td>125</td>
+                <td>李明亮</td>
+                <td>普通用户</td>
+                <!-- 
+						<td><span></span></td>
+						<td><a href="http://ip138.com/ips138.asp?ip=&action=2" target="_blank"></a></td>
+						 -->
+                <td><a class="text-danger" href="/user/toggle?sid=125">点击禁用</a> | <a class="text-danger" href="/user/rm?sid=125">删除</a> | <a class="text-danger" href="/user/resetpwd?sid=125">重置密码</a> </td>
+              </tr>
+              <tr>
+                <td>126</td>
+                <td>sg</td>
+                <td>普通用户</td>
+                <!-- 
+						<td><span></span></td>
+						<td><a href="http://ip138.com/ips138.asp?ip=&action=2" target="_blank"></a></td>
+						 -->
+                <td><a class="text-danger" href="/user/toggle?sid=126">点击禁用</a> | <a class="text-danger" href="/user/rm?sid=126">删除</a> | <a class="text-danger" href="/user/resetpwd?sid=126">重置密码</a> </td>
+              </tr>
+              <tr>
+                <td>127</td>
+                <td>sm</td>
+                <td>普通用户</td>
+                <!-- 
+						<td><span></span></td>
+						<td><a href="http://ip138.com/ips138.asp?ip=&action=2" target="_blank"></a></td>
+						 -->
+                <td><a class="text-danger" href="/user/toggle?sid=127">点击禁用</a> | <a class="text-danger" href="/user/rm?sid=127">删除</a> | <a class="text-danger" href="/user/resetpwd?sid=127">重置密码</a> </td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="6"><br>
+                  <div class="plr20">
+                    <div class="pager fr gray"> <a href="/user?page=1">1</a> </div>
+                  </div>
+                  <div class="hr_a"></div></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        <div class="hr_b"></div>
+      </div>
+    </div>
+    <script>
+$("a.text-danger").click(function(){
+	return confirm("?")
+});
+</script>
+  </div>
+</div>
+</body>
+</html>

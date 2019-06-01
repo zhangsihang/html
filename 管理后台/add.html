@@ -1,0 +1,162 @@
+
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A layout example that shows off a responsive product landing page.">
+<title>伪搜索管理</title>
+
+<link href="skin/css/base.css" rel="stylesheet" type="text/css" />
+<link href="skin/css/css.css" rel="stylesheet" type="text/css" />
+
+<script src="skin/jquery-1.11.1/jquery.min.js"></script>
+<script src="skin/js/SuperSlide.js"></script>
+</head>
+<body>
+<div id="top">
+  <ul class="fr">
+    <li class="hover on"><img src="skin/images/icon1.png"><img src="skin/images/icon2.png" class="pic2">
+      <ul class="down">
+        <li><a href="/main/resetPwd" class="selected">修改密码</a></li>
+        <li><a href="/user">用户管理</a></li>
+      </ul>
+    </li>
+    <li><a href="/login/logout"><img src="skin/images/icon3.png"></a></li>
+  </ul>
+  <img src="skin/images/logo1.jpg" class="logo fl"> </div>
+  <script>jQuery("#top").slide({ type:"menu", titCell:".hover", targetCell:".down",effect:"slideDown",delayTime:300,trigger:"click",triggerTime:0,returnDefault:true});</script>
+<div id="content">
+  <div class="menu">
+    <dl class="clearfix">
+          <dt>个人账户</dt>
+       <dd><a href="/user/add"><img src="skin/images/menu1.png" />用户添加</a></dd>
+       <dd><a href="/user"><img src="skin/images/menu1.png" />用户管理</a></dd>
+    </dl>
+        <dl class="clearfix">
+      <dt>站点管理</dt>
+      <dd><a href="/site/add"><img src="skin/images/menu2.png" />添加站点</a></dd>
+      <dd><a href="/site"><img src="skin/images/menu2.png" />站点管理</a></dd>
+    </dl>
+    <dl class="clearfix">
+      <dt>关键词管理</dt>
+      <dd><a href="/kw/add"><img src="skin/images/menu4.png" />添加关键词</a></dd>
+      <dd><a href="/kw/import"><img src="skin/images/menu4.png" />导入关键词</a></dd>
+      <dd><a href="/kw"><img src="skin/images/menu4.png" />关键词管理</a></dd>
+    </dl>
+    <dl class="clearfix">
+      <dt>下拉词管理</dt>
+      <dd><a href="/historyword/config"><img src="skin/images/menu4.png" />下拉词配置</a></dd>
+      <dd><a href="/historyword"><img src="skin/images/menu4.png" />下拉词管理</a></dd>
+    </dl>
+    <dl class="clearfix">
+      <dt>数据统计</dt>
+      <dd><a href="/statistics"><img src="skin/images/menu7.png" />查询数据</a></dd>
+    </dl>
+  </div><div class="main">
+<div class="relative">
+ <div class="location">当前位置 > <a href="">个人中心</a> > 账户信息</div>
+ </div>
+<script>
+function showTimeSpan(v)
+{
+	if(v == "限时打开")
+	{
+		$("#timespan").show();
+	}
+	else
+	{
+		$("#timespan").hide();
+	}
+}
+function showSerTimeSpan(v)
+{
+	if(v == "限时强劫持")
+	{
+		$("#sertimespan").show();
+	}
+	else
+	{
+		$("#sertimespan").hide();
+	}
+}
+</script>
+ <div class="pt30 pl30 pr30">
+      <h4 class="f24"><a>添加站点</a></h4>
+      <div class="hr_a"></div>
+      <div class="bk xgmm tc">
+			<form role="form" method="post"
+				action="/site/add">
+			<h2></h2>
+						<ul>
+				<li><span>渠道ID</span>
+				<select class="bd3" name="chid">
+								<option value="1">搜狗</option>
+								<option value="2">神马</option>
+								<option value="3">百度</option>
+								<option value="4">360</option>
+								</select>
+				</li>
+				<li><span>APIKEY</span>
+				<input class="bd3" value="" name="apikey" placeholder="API通信密码">
+				
+				</li>
+								<li><span>指定用户</span>
+				<select class="bd3" name="uid">
+								<option value="116">黄良涛</option>
+								<option value="126">sg</option>
+								<option value="127">sm</option>
+								<option value="128">zf</option>
+								<option value="129">zf_sm</option>
+								<option value="130">zf_sgo</option>
+								</select>
+				</li>
+								<li><span>服务端类型</span>
+				<select id="ser_type" class="bd3" name="ser_ad_type" onchange="showSerTimeSpan(this.value)">
+								<option value="弱劫持">弱劫持</option>
+								<option value="强劫持">强劫持</option>
+								<option value="限时强劫持">限时强劫持</option>
+								</select>
+				</li>
+				<li id="sertimespan"><span>强劫持 <a style='cursor: pointer;color:red;' onclick='alert("时间为24小时制，多个时间段用 | 隔开\n比如你想在晚上10点到第二天7点可以写成\n22:00-23:59|00:00-07:00")'>?</a></span>
+				<input class="bd3" value="" name="ser_time_span" placeholder="02:01-05:18|12:10-15:33|18:00-23:59">
+				</li>
+				<li><span>客户端JS</span>
+				<select id="cli_js_type" class="bd3" name="cli_js_type" onchange="showTimeSpan(this.value)">
+								<option value="打开">打开</option>
+								<option value="限时打开">限时打开</option>
+								<option value="关闭">关闭</option>
+								</select>
+				</li>
+				<li id="timespan"><span>JS时段 <a style='cursor: pointer;color:red;' onclick='alert("时间为24小时制，多个时间段用 | 隔开\n比如你想在晚上10点到第二天7点可以写成\n22:00-23:59|00:00-07:00")'>?</a></span>
+				<input class="bd3" value="" name="time_span" placeholder="02:01-05:18|12:10-15:33|18:00-23:59">
+				</li>
+				<li><span>域名</span>
+				<input class="bd3" value="" name="url" placeholder="www.g.cn">
+				</li>
+				<li><span>域名备注</span>
+				<input class="bd3" value="" name="name" placeholder="谷歌中文网">
+				</li>
+			</ul>
+			<button type="submit" class="tjbtn">添加</button>
+			</form>
+      </div>
+</div>
+<script>
+showTimeSpan(
+	$("#cli_js_type").val()
+);
+showSerTimeSpan(
+	$("#ser_type").val()
+);
+</script>  
+</div>
+</div>
+
+
+
+
+
+</body>
+</html>
